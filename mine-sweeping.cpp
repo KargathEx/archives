@@ -1,3 +1,7 @@
+//update : 问题别人都帮忙定义好了，自己实现即可，这就是所谓的“自己写 而不是抄代码”，妈的我以前除了在网上找别人现成的实现来读或者修改，根本就不知道“如何知道该写什么“。
+//https://leetcode-cn.com/problems/minesweeper/
+//这一点本来是该谁来告诉你的？ 呵呵。
+
 //Win32 Console Application
 //Complier: MinGW(GCC), VC6.0, VC2003, VC2005
 //Demo Game By yzfy(雨中飞燕) [url]http://yzfy.org[/url]
