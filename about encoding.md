@@ -119,6 +119,32 @@ from:[How to portably write std::wstring to file?](https://stackoverflow.com/que
 std::locale::global(std::locale("")); 
 ```
 
+现在代码成了:
+```cpp
+
+std::string utf8_encode(const std::wstring& wstr)
+{
+  if (wstr.empty()) return std::string();
+  int size_needed = WideCharToMultiByte(CP_UTF8, 0, &wstr[0], (int)wstr.size(), NULL, 0, NULL, NULL);
+  std::string strTo(size_needed, 0);
+  WideCharToMultiByte(CP_UTF8, 0, &wstr[0], (int)wstr.size(), &strTo[0], size_needed, NULL, NULL);
+  return strTo;
+}
+int wmain(int argc, wchar_t* argv[])
+{
+  std::setlocale(LC_ALL, "");
+  std::locale::global(std::locale("")); //加上这句之后可行了..
+  wstring str = argv[1];
+  wcout << str <<  endl;
+  //auto str_to_write = utf8_encode(str);
+  wofstream output("in.txt", std::ios::binary | std::ios::app);
+  //output << str_to_write;
+  output<<str;
+  output.close();
+  return 0;
+}
+
+```
 上面链接的评论区提到了[字符串缩窄的问题](
 https://stackoverflow.com/questions/1509277/why-does-wide-file-stream-in-c-narrow-written-data-by-default?rq=1):  
 现在我终于看懂群佬那句"wofstream默认会根据字符集做过滤"是什么意思了，比如有如下字符  
