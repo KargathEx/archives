@@ -70,6 +70,15 @@ namespace ufo {
 auto _max_  = [](auto a, auto b) { return std::max(a, b); };
 ```
 使用场景[来源](https://www.youtube.com/watch?v=qNKBdqifxpU&t=407s)  
+```
+int main()
+{
+  int a = 10;
+  int b = 10000;
+  auto&& fn = ufo::max<>();
+  cout << fn(1, 2);
+}
+```
 原来旧时代的人要写这么多东西.   
 学新东西，方便的还是用户自己。
 
