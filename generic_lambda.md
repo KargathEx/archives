@@ -64,13 +64,6 @@ namespace ufo {
       }
   };
 }
-```
-等价的写法是 [来源](https://github.com/codereport/blackbird/blob/main/combinators.hpp#LL55C1-L55C61)
-```cpp
-auto _max_  = [](auto a, auto b) { return std::max(a, b); };
-```
-使用场景[来源](https://www.youtube.com/watch?v=qNKBdqifxpU&t=407s)  
-```
 int main()
 {
   int a = 10;
@@ -79,6 +72,19 @@ int main()
   cout << fn(1, 2);
 }
 ```
+
+等价的写法是generic_lambda [from](https://github.com/codereport/blackbird/blob/main/combinators.hpp#LL55C1-L55C61)
+```cpp
+auto _max_  = [](auto a, auto b) { return std::max(a, b); };
+int main()
+{
+  int a = 10;
+  int b = 10000;
+  cout << ::_max_(1, 2);
+}
+```
+
+注:main里的调用不是典型，我只是记一下语法上怎么用。
+
 原来旧时代的人要写这么多东西.   
 学新东西，方便的还是用户自己。
-
