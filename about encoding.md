@@ -35,8 +35,8 @@ int main(int argc, char* argv[])
 ~~1.这里为了免得每次都得去生成exe的目录下执行，用了插件[CommandlineArguments](https://github.com/MBulli/SmartCommandlineArgs)~~  
 ~~2.我知道[cmd不是控制台,也不是运行在控制台中](https://devblogs.microsoft.com/commandline/windows-command-line-inside-the-windows-console/#launching-the-console--or-not),这个以后再说。~~  
 
-在我读过的代码里，唯一一次遇到wmain的情况，人家的String是自己写的，所以在此之前我没用过wmain。  
-所以当我把代码改成w格式时候，终端不输出任何东西。  
+在读过的代码里，唯一一次遇到wmain的情况，人家的String是自己写的。  
+所以当把代码改成w格式时候，终端不输出任何东西。  
 ```cpp
 int wmain(int argc, wchar_t* argv[])
 {
@@ -64,7 +64,7 @@ int wmain(int argc, wchar_t* argv[])
 然后wmain里的argv[1]也可以存到wstring里然后输出了。  
 
 
-接下来写non-w版本的，一切正常，想要转换成utf-8的话，有大量的库可用，boost也行,一搜[一大把](),随便选一个  
+接下来写non-w版本的，一切正常，想要转换成utf-8的话，有大量的库可用，boost也行,一搜[一大把](...),随便选一个  
 ```cpp
 
 std::string utf8_encode(const std::wstring& wstr)
@@ -197,4 +197,3 @@ todo:
 
 其他群佬提到的链接，可能能用来解决我关于[文本编辑器](http://www.catch22.net/tuts/neatpad)教程里遇到的问题，暂时放着...  
 https://faultlore.com/blah/text-hates-you/#additional-links
-  
